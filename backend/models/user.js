@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema(
     },
     userId: {
       type: String,
+      unique: true,
       required: [true, 'user id field is required!'],
       minLength: 2,
       maxLength: 32,
