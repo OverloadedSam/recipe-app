@@ -33,3 +33,34 @@ module.exports.registerUser = asyncHandler(async (req, res, next) => {
       },
     });
 });
+
+/*
+ * @ROUTE    POST /api/login
+ * @DESC     Login user by verifying credentials.
+ * @ACCESS   Public
+ * */
+module.exports.loginUser = asyncHandler(async (req, res, next) => {
+  const { userId, password } = req.body;
+
+  if (!userId || !password)
+    return next(400, 'Both a user ID and password are necessary.');
+
+  const user = await User.findOne({ userId });
+  if (!user) return next(new ErrorResponse(404, 'Invalid user id'));
+
+  if (!(await user.matchPassword(password)))
+    return next(new ErrorResponse(401, 'Invalid password!'));
+
+  const token = user.generateAuthToken();
+
+  res.header('x-auth-token', token).json({
+    success: true,
+    status: 200,
+    data: {
+      id: user._id,
+      userId: user.userId,
+      name: user.name,
+      token,
+    },
+  });
+});
