@@ -12,6 +12,7 @@ import Login from './screens/Login';
 import Logout from './common/Logout';
 import Recipes from './screens/Recipes';
 import RecipeDetails from './screens/RecipeDetails';
+import Footer from './components/Footer';
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeOptions), [themeOptions]);
@@ -44,6 +45,7 @@ const App = () => {
               }
             />
           </Routes>
+          <Footer />
         </ThemeProvider>
       </BrowserRouter>
     </div>
