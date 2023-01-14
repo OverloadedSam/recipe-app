@@ -14,7 +14,7 @@ export const apiSlice = createApi({
     },
   }),
   reducerPath: 'recipeApi',
-  tagTypes: ['Register', 'Login', 'Recipes'],
+  tagTypes: ['Register', 'Login', 'Recipes', 'Recipe'],
   endpoints: (build) => ({
     registerUser: build.mutation({
       query: (payload) => ({
@@ -38,6 +38,11 @@ export const apiSlice = createApi({
       query: () => 'recipes',
       providesTags: ['Recipes'],
     }),
+
+    getRecipeDetails: build.query({
+      query: (id) => `recipe/${id}`,
+      providesTags: ['Recipe'],
+    }),
   }),
 });
 
@@ -45,4 +50,5 @@ export const {
   useRegisterUserMutation,
   useLoginUserMutation,
   useGetRecipesQuery,
+  useGetRecipeDetailsQuery,
 } = apiSlice;
