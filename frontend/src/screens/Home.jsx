@@ -1,12 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import styled from '@emotion/styled';
+import { isUserLoggedIn } from '../state/features/authSlice';
 
 const Home = () => {
   const navigate = useNavigate();
+  const isLoggedIn = useSelector(isUserLoggedIn);
+
   return (
     <Hero className='hero'>
       <HeroContainer className='container'>
@@ -19,16 +23,28 @@ const Home = () => {
           culinary inspiration
         </Typography>
         <Stack direction='row' spacing={2}>
-          <Button
-            variant='contained'
-            color='secondary'
-            onClick={() => navigate('login')}
-          >
-            Log In
-          </Button>
-          <Button variant='contained' onClick={() => navigate('register')}>
-            Register
-          </Button>
+          {isLoggedIn ? (
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={() => navigate('/recipes')}
+            >
+              See Recipes
+            </Button>
+          ) : (
+            <>
+              <Button
+                variant='contained'
+                color='secondary'
+                onClick={() => navigate('login')}
+              >
+                Log In
+              </Button>
+              <Button variant='contained' onClick={() => navigate('register')}>
+                Register
+              </Button>
+            </>
+          )}
         </Stack>
       </HeroContainer>
     </Hero>
