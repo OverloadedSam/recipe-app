@@ -11,6 +11,7 @@ import Register from './screens/Register';
 import Login from './screens/Login';
 import Logout from './common/Logout';
 import Recipes from './screens/Recipes';
+import RecipeDetails from './screens/RecipeDetails';
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeOptions), [themeOptions]);
@@ -26,6 +27,14 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/logout' element={<Logout />} />
+            <Route
+              path='/recipe/:id'
+              element={
+                <RequireAuth>
+                  <RecipeDetails />
+                </RequireAuth>
+              }
+            />
             <Route
               path='/recipes'
               element={
