@@ -30,7 +30,13 @@ module.exports.getRecipes = asyncHandler(async (req, res, next) => {
 module.exports.getRecipeById = asyncHandler(async (req, res, next) => {
   const recipeId = req.params.id;
 
-  const recipe = await Recipe.findById(recipeId).select('-__v -updatedAt');
+  const recipe = await Recipe.findById(recipeId)
+    .select('-__v -updatedAt')
+    .populate({
+      path: 'creator',
+      select: 'name userId',
+    });
+
   if (!recipe) {
     const message = `Recipe not found with given id: ${recipeId}`;
     return next(new ErrorResponse(404, message));
