@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Home from './screens/Home';
 import Register from './screens/Register';
 import Login from './screens/Login';
+import Logout from './common/Logout';
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeOptions), [themeOptions]);
@@ -22,6 +23,7 @@ const App = () => {
             <Route path='/' element={<Home />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/logout' element={<Logout />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
