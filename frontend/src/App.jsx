@@ -7,6 +7,7 @@ import { themeOptions } from './theme';
 import Navbar from './components/Navbar';
 import Home from './screens/Home';
 import Register from './screens/Register';
+import Login from './screens/Login';
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeOptions), [themeOptions]);
@@ -20,6 +21,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
