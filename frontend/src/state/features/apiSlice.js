@@ -1,9 +1,20 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const apiSlice = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_BASE_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const userLogin = getState().auth.userLogin;
+      const isLoggedIn = userLogin.isLoggedIn;
+      const token = userLogin?.user?.token;
+
+      if (isLoggedIn) headers.set('authorization', `Bearer ${token}`);
+
+      return headers;
+    },
+  }),
   reducerPath: 'recipeApi',
-  tagTypes: ['Register', 'Login'],
+  tagTypes: ['Register', 'Login', 'Recipes'],
   endpoints: (build) => ({
     registerUser: build.mutation({
       query: (payload) => ({
@@ -22,7 +33,16 @@ export const apiSlice = createApi({
       }),
       providesTags: ['Login'],
     }),
+
+    getRecipes: build.query({
+      query: () => 'recipes',
+      providesTags: ['Recipes'],
+    }),
   }),
 });
 
-export const { useRegisterUserMutation, useLoginUserMutation } = apiSlice;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useGetRecipesQuery,
+} = apiSlice;
