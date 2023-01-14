@@ -34,7 +34,8 @@ const dataRecipe = [
     name: 'Spaghetti Bolognese',
     description:
       'A classic Italian dish made with ground beef, tomatoes, and spaghetti pasta.',
-    imageUrl: 'https://www.example.com/spaghetti-bolognese.jpg',
+    imageUrl:
+      'https://res.cloudinary.com/cloud-for-web-apps/image/upload/v1673718695/recipes/spaghetti-bolognese.jpg',
     creator: '5f9d80a52c521e2bac9f9a73',
   },
   {
@@ -42,7 +43,8 @@ const dataRecipe = [
     name: 'Chicken Tikka Masala',
     description:
       'A popular Indian dish made with marinated chicken cooked in a spicy tomato-based sauce.',
-    imageUrl: 'https://www.example.com/chicken-tikka-masala.jpg',
+    imageUrl:
+      'https://res.cloudinary.com/cloud-for-web-apps/image/upload/v1673718695/recipes/chicken-tikka-masala.jpg',
     creator: '5f9d80a52c521e2bac9f9a74',
   },
   {
@@ -50,30 +52,34 @@ const dataRecipe = [
     name: 'Pad Thai',
     description:
       'A popular Thai dish made with stir-fried rice noodles, vegetables, and peanuts.',
-    imageUrl: 'https://www.example.com/pad-thai.jpg',
+    imageUrl:
+      'https://res.cloudinary.com/cloud-for-web-apps/image/upload/v1673718695/recipes/pad-thai.jpg',
     creator: '5f9d80a52c521e2bac9f9a75',
   },
   {
     _id: '5f9d8ca52c521e2bac9f9a76',
     name: 'Tomato Soup',
     description: 'A classic soup made with tomatoes, onions, and garlic.',
-    imageUrl: 'https://www.example.com/tomato-soup.jpg',
+    imageUrl:
+      'https://res.cloudinary.com/cloud-for-web-apps/image/upload/v1673718695/recipes/tomato-soup.jpg',
     creator: '5f9d80a52c521e2bac9f9a73',
   },
   {
     _id: '5f9d8ca52c521e2bac9f9a77',
-    name: 'Beef Tacos',
+    name: 'Tacos',
     description:
       'A popular Mexican dish made with seasoned beef and topped with cheese, lettuce, and salsa.',
-    imageUrl: 'https://www.example.com/beef-tacos.jpg',
+    imageUrl:
+      'https://res.cloudinary.com/cloud-for-web-apps/image/upload/v1673718695/recipes/tacos.jpg',
     creator: '5f9d80a52c521e2bac9f9a74',
   },
   {
     _id: '5f9d8ca52c521e2bac9f9a78',
     name: 'Sushi',
     description:
-      'A Japanese dish made with vinegared rice and various toppings such as fish, vegetables, and eggs.',
-    imageUrl: 'https://www.example.com/sushi.jpg',
+      'A Japanese dish made with vinegared rice and various toppings such as fish and vegetables.',
+    imageUrl:
+      'https://res.cloudinary.com/cloud-for-web-apps/image/upload/v1673718695/recipes/sushi.jpg',
     creator: '5f9d80a52c521e2bac9f9a75',
   },
 ];
