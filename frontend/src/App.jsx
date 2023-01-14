@@ -5,6 +5,7 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import { themeOptions } from './theme';
+import Navbar from './components/Navbar';
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeOptions), [themeOptions]);
@@ -14,6 +15,7 @@ const App = () => {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Navbar />
           <Typography variant='h2'>Recipe App</Typography>
         </ThemeProvider>
       </BrowserRouter>
