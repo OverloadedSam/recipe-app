@@ -4,11 +4,13 @@ import createTheme from '@mui/material/styles/createTheme';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { themeOptions } from './theme';
+import RequireAuth from './common/RequireAuth';
 import Navbar from './components/Navbar';
 import Home from './screens/Home';
 import Register from './screens/Register';
 import Login from './screens/Login';
 import Logout from './common/Logout';
+import Recipes from './screens/Recipes';
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeOptions), [themeOptions]);
@@ -24,6 +26,14 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/logout' element={<Logout />} />
+            <Route
+              path='/recipes'
+              element={
+                <RequireAuth>
+                  <Recipes />
+                </RequireAuth>
+              }
+            />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
