@@ -23,8 +23,8 @@ const Recipes = () => {
       ) : (
         <Grid container justifyContent='center' spacing={3} mb={5}>
           {data.data.map((recipe) => (
-            <Grid item>
-              <RecipeCard key={recipe._id} recipe={recipe} />
+            <Grid item key={recipe._id}>
+              <RecipeCard recipe={recipe} />
             </Grid>
           ))}
         </Grid>
