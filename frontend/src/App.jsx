@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { themeOptions } from './theme';
 import Navbar from './components/Navbar';
 import Home from './screens/Home';
+import Register from './screens/Register';
 
 const App = () => {
   const theme = useMemo(() => createTheme(themeOptions), [themeOptions]);
@@ -18,6 +19,7 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/register' element={<Register />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
